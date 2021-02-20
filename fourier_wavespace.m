@@ -9,17 +9,16 @@ function [q,hq]= fourier_wavespace(height_fluctuations,resolution,boxsize)
 
 %%
 dx=resolution;
-qs=(2*pi)/dx;                         %Sampling wavenumber
+qs=(2*pi)/dx;                       %Sampling wavenumber
 nbox=boxsize;                       %Length of the signal sampled.
 S=height_fluctuations;
 
 
-Y=fft(S);
-P2=(abs(Y/nbox)).^2;
-P1=P2(1:nbox/2+1);
-P1(2:end-1)=2*P1(2:end-1);
-q=qs*(0:(nbox/2))/nbox;
-hq=P1*nbox*nbox;
+Y=fft(S);                               % Compute FFt of the Interfacial height
+P2=(abs(Y/nbox)).^2;                    % Compute h(q)^2 
+P1=(P2(1:nbox/2+1)+P2(nbox/2:nbox))/2;  % Get mean h(q)^2  (Otherwise Power spectrum of Height)               
+q=qs*(0:(nbox/2))/nbox;                 % Get q information to make a plot
+hq=P1*nbox*nbox;                        % Structure factor - normalize power spectrum with projected area.
 
 %%
 %  figure(2)
