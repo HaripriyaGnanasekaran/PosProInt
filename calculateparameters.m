@@ -1,3 +1,7 @@
+% Okay we need a lot of parameters before we can get the right spectrum
+% list includes the gibbs radius to get the height of interface provided density in 3d box
+% Only two component system  is studied. For more than 2 component this script will surely not work. 
+
 function [rgibbs,hx,hy,q,hqx,hqy,corravgx,corravgy,lags,pdfh,h,gr,r]=calculateparameters(rho,nx,ny,nz,dx)
 
 %% Calculate the Gibbs plane for all x,y
