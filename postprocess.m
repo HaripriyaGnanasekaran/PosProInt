@@ -1,16 +1,18 @@
 %% Simulation parameters
 system('rm spectrum_*.dat');
-nx=256;
-ny=256;
-nz=31;
-dx=1;
-component=1;
-filename = '../../covidsim';
-simulationname='covidsim';
+% Provide system information 
+nx=256; % box size in x direction
+ny=256; % box size in y direction
+nz=31; % box size in z direction
+dx=1; % distance between two lattice size normalized with segment size dx = b/b =1
+component=1; 
+filename = './provide_folder_location_from_present_working_directory/';
+simulationname='file_name_without_vtk_extensions';
 start = 3;
-nfiles=start+3;
+nfiles=start+3; % specify range over which MC-SCF samples has to be calculated
 % 210 to 219 for 0.6
 % 1 to 19 for 0.55 
+
 %% Function Calls
 hqa=zeros(nx,1);
 ca=zeros(1,nx*2-1);
