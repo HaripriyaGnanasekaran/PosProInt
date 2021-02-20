@@ -1,3 +1,6 @@
+% Currently the tool can only analyze the vtk format files. 
+% Supports vtk 8.0 or smaller. Higher version might encounter some compatibility issues.
+
 function [rho]=readvtk(component, nx,ny,nz,dx,filename)
 
 system_size = nx*ny*nz;
